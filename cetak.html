@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Cetak</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🖨 Cetak Laporan</h1>
+
+</header>
+
+<div class="container">
+
+<h2>Pilih Laporan</h2>
+
+<select id="jenisLaporan">
+
+    <option value="tim">Daftar Tim</option>
+
+    <option value="pemain">Daftar Pemain</option>
+
+    <option value="grup">Pembagian Grup</option>
+
+    <option value="jadwal">Jadwal Pertandingan</option>
+
+    <option value="hasil">Hasil Pertandingan</option>
+
+    <option value="klasemen" selected>Klasemen</option>
+
+    <option value="topskor">🥇 Top Skor</option>
+
+    <option value="semifinal">Semifinal</option>
+
+    <option value="hasilSemifinal">Hasil Semifinal</option>
+
+    <option value="final">Final</option>
+
+    <option value="hasilFinal">Hasil Final</option>
+
+    <option value="juara">Juara Turnamen</option>
+
+</select>
+
+<button onclick="tampilkanLaporan()">
+Tampilkan
+</button>
+
+<button onclick="window.print()">
+🖨 Cetak / Simpan PDF
+</button>
+
+<hr>
+
+<div id="laporan"></div>
+
+</div>
+
+<script src="js/cetak.js"></script>
+
+</body>
+
+</html>

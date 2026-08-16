@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Klasemen Akhir</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: #1769e0;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,.1);
+        }
+
+        h2 {
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #1769e0;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .juara {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background: #1769e0;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏆 KLASEMEN AKHIR</h1>
+    <p>Hasil akhir turnamen</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>🏆 PERINGKAT AKHIR</h2>
+
+        <div id="hasilAkhir"></div>
+
+        <a href="hasil_final.html" class="btn">
+            ← Kembali
+        </a>
+
+    </div>
+
+</div>
+
+<script src="js/klasemen_akhir.js"></script>
+
+</body>
+</html>

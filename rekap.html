@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Rekap Turnamen</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: #1769e0;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.1);
+        }
+
+        .juara {
+            text-align: center;
+        }
+
+        .juara h1 {
+            font-size: 32px;
+            margin: 10px 0;
+        }
+
+        .pertandingan {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .semifinal {
+            border-bottom: 1px solid #ddd;
+            padding: 12px 0;
+            font-weight: bold;
+        }
+
+        button {
+            background: #1769e0;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0d55bd;
+        }
+
+        .kosong {
+            text-align: center;
+            color: #777;
+            padding: 20px;
+        }
+
+        @media print {
+
+            button {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>🏆 REKAP TURNAMEN</h1>
+
+        <p>
+            Karang Taruna Cup
+        </p>
+
+    </header>
+
+
+    <div class="container">
+
+        <div id="rekapTurnamen"></div>
+
+
+        <br>
+
+
+        <button onclick="window.print()">
+            🖨️ Cetak Hasil Turnamen
+        </button>
+
+
+        <br><br>
+
+
+        <button onclick="history.back()">
+            ← Kembali
+        </button>
+
+    </div>
+
+
+    <script src="js/rekap.js"></script>
+
+</body>
+
+</html>

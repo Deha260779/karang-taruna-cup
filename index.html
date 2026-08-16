@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karang Taruna Cup Manager</title>
+<link rel="manifest" href="manifest.json">
+
+</head>
+
+<body>
+
+<header>
+<h1>⚽ Karang Taruna Cup Manager</h1>
+<p>Sistem Manajemen Turnamen Sepak Bola</p>
+</header>
+
+<div class="container">
+
+<div class="menu">
+
+    <!-- ========================= -->
+    <!-- DASHBOARD -->
+    <!-- ========================= -->
+
+    <div class="card">
+        <h2>📊 Dashboard</h2>
+        <p>Progress turnamen secara otomatis.</p>
+        <button onclick="location.href='dashboard.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- TAHAP 1 : PERSIAPAN -->
+    <!-- ========================= -->
+
+    <div class="card">
+        <h2>👥 Tim</h2>
+        <p>Input dan kelola data tim.</p>
+        <button onclick="location.href='tim.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <div class="card">
+        <h2>👤 Pemain</h2>
+        <p>Kelola daftar pemain setiap tim.</p>
+        <button onclick="location.href='pemain.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <div class="card">
+        <h2>🏆 Grup</h2>
+        <p>Membuat pembagian grup.</p>
+        <button onclick="location.href='grup.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <div class="card">
+        <h2>📅 Jadwal</h2>
+        <p>Membuat jadwal pertandingan.</p>
+        <button onclick="location.href='jadwal.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- TAHAP 2 : PERTANDINGAN GRUP -->
+    <!-- ========================= -->
+
+    <div class="card">
+        <h2>⚽ Hasil</h2>
+        <p>Input skor pertandingan.</p>
+        <button onclick="location.href='hasil.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <div class="card">
+        <h2>📊 Klasemen</h2>
+        <p>Melihat klasemen otomatis.</p>
+        <button onclick="location.href='klasemen.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- TAHAP 3 : SEMIFINAL -->
+    <!-- ========================= -->
+
+    <div class="card">
+        <h2>🏆 Semifinal</h2>
+        <p>Menentukan peserta semifinal otomatis.</p>
+        <button onclick="location.href='semifinal.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <div class="card">
+        <h2>📋 Hasil Semifinal</h2>
+        <p>Input hasil pertandingan semifinal.</p>
+        <button onclick="location.href='semifinal_hasil.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- TAHAP 4 : FINAL -->
+    <!-- ========================= -->
+
+    <div class="card">
+        <h2>🏆 Final</h2>
+        <p>Menentukan pertandingan final.</p>
+        <button onclick="location.href='final.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <div class="card">
+        <h2>⚽ Hasil Final</h2>
+        <p>Input hasil pertandingan final.</p>
+        <button onclick="location.href='hasil_final.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- TAHAP 5 : HASIL AKHIR -->
+    <!-- ========================= -->
+
+    <div class="card">
+        <h2>🏆 Klasemen Akhir</h2>
+        <p>Melihat peringkat akhir turnamen.</p>
+        <button onclick="location.href='klasemen_akhir.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <div class="card">
+        <h2>👑 Juara</h2>
+        <p>Hasil akhir turnamen.</p>
+        <button onclick="location.href='juara.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <div class="card">
+        <h2>🥇 Top Skor</h2>
+        <p>Daftar pencetak gol terbanyak.</p>
+        <button onclick="location.href='topskor.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- TAHAP 6 : LAPORAN -->
+    <!-- ========================= -->
+
+    <div class="card">
+        <h2>📊 Rekap Turnamen</h2>
+        <p>Melihat rekap hasil seluruh pertandingan.</p>
+        <button onclick="location.href='rekap.html'">
+            Masuk
+        </button>
+    </div>
+
+
+    <div class="card">
+        <h2>🖨️ Cetak</h2>
+        <p>Cetak laporan turnamen.</p>
+        <button onclick="location.href='cetak.html'">
+            Masuk
+        </button>
+    </div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+Karang Taruna Cup Manager © 2026
+</footer>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+            .then(() => {
+                console.log("Service Worker aktif");
+            })
+            .catch(error => {
+                console.error("Service Worker gagal:", error);
+            });
+    });
+}
+</script>
+
+</body>
+</html>
