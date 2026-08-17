@@ -1,6 +1,6 @@
 const div = document.getElementById("dashboard");
 
-const tim = JSON.parse(localStorage.getItem("tim")) || [];
+const tim = JSON.parse(localStorage.getItem("dataTim")) || [];
 const jadwal = JSON.parse(localStorage.getItem("jadwal")) || [];
 const hasil = JSON.parse(localStorage.getItem("hasil")) || [];
 const semifinal = JSON.parse(localStorage.getItem("semifinal")) || [];
