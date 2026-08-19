@@ -57,7 +57,7 @@ if (selesai < jumlahPertandinganGrup) {
     status.innerHTML = `
         🟢 <b>FASE GRUP SELESAI</b><br>
         Seluruh pertandingan grup telah selesai.<br>
-        Top Skor menggunakan perhitungan resmi turnamen.
+        <b>Semua gol dalam turnamen dihitung untuk Top Skor.</b>
     `;
 
 }
@@ -71,23 +71,6 @@ let daftarGol = [];
 
 
 // ==========================================
-// TIM PERINGKAT TERAKHIR
-// PERTANDINGAN MELAWAN TIM INI
-// TIDAK DIHITUNG UNTUK TOP SKOR
-// ==========================================
-
-const timDikecualikan = {
-
-    A: "BARETA LEGEND FC",
-
-    B: null,
-
-    C: "DARAHAN FC"
-
-};
-
-
-// ==========================================
 // FUNGSI TAMBAH GOL
 // ==========================================
 
@@ -97,12 +80,10 @@ function tambahGol(nama, tim) {
         return;
     }
 
-
     const pemain = daftarGol.find(p =>
         p.nama === nama &&
         p.tim === tim
     );
-
 
     if (pemain) {
 
@@ -113,9 +94,7 @@ function tambahGol(nama, tim) {
         daftarGol.push({
 
             nama: nama,
-
             tim: tim,
-
             gol: 1
 
         });
@@ -127,9 +106,6 @@ function tambahGol(nama, tim) {
 
 // ==========================================
 // FUNGSI AMBIL PENCETAK GOL
-// ==========================================
-// Menggunakan pencetakGol11 / pencetakGol12
-// sesuai struktur data pertandingan.
 // ==========================================
 
 function prosesGolPertandingan(m) {
@@ -145,14 +121,11 @@ function prosesGolPertandingan(m) {
 
     let pencetakTim1 = [];
 
-
     if (Array.isArray(m.pencetakGol11)) {
 
         pencetakTim1 = m.pencetakGol11;
 
     } else if (Array.isArray(m.pencetakGol1)) {
-
-        // fallback jika ada data lama
 
         pencetakTim1 = m.pencetakGol1;
 
@@ -172,14 +145,11 @@ function prosesGolPertandingan(m) {
 
     let pencetakTim2 = [];
 
-
     if (Array.isArray(m.pencetakGol12)) {
 
         pencetakTim2 = m.pencetakGol12;
 
     } else if (Array.isArray(m.pencetakGol2)) {
-
-        // fallback jika ada data lama
 
         pencetakTim2 = m.pencetakGol2;
 
@@ -196,52 +166,19 @@ function prosesGolPertandingan(m) {
 
 
 // ==========================================
-// HITUNG GOL FASE GRUP
+// HITUNG SEMUA GOL FASE GRUP
+// ==========================================
+//
+// PENTING:
+// Semua pertandingan grup dihitung.
+// Tidak ada lagi pengecualian tim terbawah.
 // ==========================================
 
 hasil.forEach(m => {
 
-
-    // ======================================
-    // HANYA GRUP A, B, C
-    // ======================================
-
     if (!["A", "B", "C"].includes(m.grup)) {
-
         return;
-
     }
-
-
-    // ======================================
-    // CEK TIM PERINGKAT TERAKHIR
-    // ======================================
-
-    const timTerbawah =
-        timDikecualikan[m.grup];
-
-
-    // ======================================
-    // JIKA PERTANDINGAN MELAWAN
-    // TIM TERBAWAH → TIDAK DIHITUNG
-    // ======================================
-
-    if (
-        timTerbawah &&
-        (
-            m.tim1 === timTerbawah ||
-            m.tim2 === timTerbawah
-        )
-    ) {
-
-        return;
-
-    }
-
-
-    // ======================================
-    // HITUNG SEMUA GOL PERTANDINGAN
-    // ======================================
 
     prosesGolPertandingan(m);
 
@@ -249,9 +186,7 @@ hasil.forEach(m => {
 
 
 // ==========================================
-// HITUNG GOL SEMIFINAL
-// ==========================================
-// Semua gol semifinal dihitung.
+// HITUNG SEMUA GOL SEMIFINAL
 // ==========================================
 
 hasilSemifinal.forEach(m => {
@@ -262,14 +197,8 @@ hasilSemifinal.forEach(m => {
 
 
 // ==========================================
-// HITUNG GOL FINAL
+// HITUNG SEMUA GOL FINAL
 // ==========================================
-// Semua gol final dihitung.
-// ==========================================
-
-
-// Karena hasilFinal bisa berupa array
-// atau object, ambil data pertandingan.
 
 let finalData = null;
 
@@ -285,8 +214,6 @@ if (Array.isArray(hasilFinal)) {
 }
 
 
-// Jika data final tersedia
-
 if (finalData) {
 
     prosesGolPertandingan(finalData);
@@ -300,22 +227,11 @@ if (finalData) {
 
 daftarGol.sort((a, b) => {
 
-
-    // ======================================
-    // GOL TERBANYAK DI ATAS
-    // ======================================
-
     if (b.gol !== a.gol) {
 
         return b.gol - a.gol;
 
     }
-
-
-    // ======================================
-    // JIKA GOL SAMA
-    // URUT BERDASARKAN NAMA
-    // ======================================
 
     return a.nama.localeCompare(b.nama);
 
@@ -327,7 +243,6 @@ daftarGol.sort((a, b) => {
 // ==========================================
 
 if (daftarGol.length === 0) {
-
 
     tabel.innerHTML = `
 
@@ -342,9 +257,7 @@ if (daftarGol.length === 0) {
 
     `;
 
-
 } else {
-
 
     let html = `
 
@@ -364,11 +277,8 @@ if (daftarGol.length === 0) {
                 <tr>
 
                     <th>No</th>
-
                     <th>Nama Pemain</th>
-
                     <th>Tim</th>
-
                     <th>Gol</th>
 
                 </tr>
@@ -380,12 +290,7 @@ if (daftarGol.length === 0) {
     `;
 
 
-    // ======================================
-    // MASUKKAN DATA PEMAIN
-    // ======================================
-
     daftarGol.forEach((p, i) => {
-
 
         html += `
 
@@ -418,10 +323,6 @@ if (daftarGol.length === 0) {
     });
 
 
-    // ======================================
-    // TUTUP TABEL
-    // ======================================
-
     html += `
 
             </tbody>
@@ -430,10 +331,6 @@ if (daftarGol.length === 0) {
 
     `;
 
-
-    // ======================================
-    // TAMPILKAN KE HALAMAN
-    // ======================================
 
     tabel.innerHTML = html;
 
